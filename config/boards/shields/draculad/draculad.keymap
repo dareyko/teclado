@@ -21,25 +21,25 @@
 
     keymap {
         compatible = "zmk,keymap";
-
+,,
         default_layer {
 
 
                         bindings = <
-   &kp SQT          &kp COMMA   &kp DOT     &kp P       &kp Y                                 &kp F           &kp G        &kp C      &kp R   &kp L        
-   &gqt LSHIFT A    &kp A       &kp E       &kp U       &kp I                                 &kp D           &kp H        &kp T      &kp N   &gqt RSHIFT S
-   &gqt LGUI SEMI   &kp Q       &kp J       &kp K       &kp X       &kp C_PP       &kp CLCK   &kp B           &kp M        &kp W      &kp V   &gqt RGUI Z  
-                                &kp LCTRL   &lt 1 ESC   &kp SPACE                             &gqt RALT RET   &lt 2 BSPC   &kp RALT
+   &kp Q          &kp W   &kp E     &kp R       &kp T                                &kp Y           &kp U        &kp I      &kp O   &kp P        
+   &gqt LSHIFT A    &kp S        &kp D       &kp F       &kp G                                 &kp H           &kp J        &kp K      &kp L   &gqt RSHIFT Ñ
+   &gqt LGUI LESS_THAN   &kp Z       &kp X       &kp C       &kp V       &kp C_PP       &kp CLCK   &kp B           &kp N        &kp M     &kp COMMA   &gqt RGUI DOT  
+                                &kp LCTRL   &to 1   &kp SPACE                             &gqt RALT RET   &lt 2 BSPC   &kp RALT
                         >;
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
+            sensor-bindings = <&inc_dec_kp C_AC_ZOOM_IN C_AC_ZOOM_OUT>;
         };
 
         lower_layer {
                         bindings = <
-   &kp N1   &kp N2         &kp N3         &kp N4       &kp N5                             &kp N6     &kp N7     &kp N8     &kp N9     &kp N0   
-   &trans   &mkp MCLK      &mkp RCLK      &mkp LCLK    &kp C_PP                           &kp CLCK   &kp LEFT   &kp UP     &kp DOWN   &kp RIGHT
-   &trans   &kp C_VOL_DN   &kp C_VOL_UP   &kp C_PREV   &kp C_NEXT   &trans       &trans   &trans     &trans     &kp HOME   &kp END    &trans   
-                           &trans         &trans       &trans                             &kp TAB    &kp BSPC   &trans
+   &kp V   &kp F         &kp P         &kp LS(P)       &kp T                             &kp R     &kpO     &kp L     &kp RC(C)     &kp LS(R)   
+   &kp C_AC_COPY   &kp C_AC_CUT      &kp C_AC_PASTE      &kp LS(LG(R))    &kp LS(LG(C))                           &kp LA(LG(C))   &kp LA(LG(V))   &kp LEFT     &kp UP   &kp RIGHT
+   &kp LG(RBKT)   &kp LG(LBKT)   &kp RBKT   &kp LBKT   &kp LA(A D)       &kp LA(W S)    &kp LA(H V)     &kp LS(A)     &kp LA(LS(A))   &kp RC(LS(A))    &kp RC(LA(H V))   
+                           &trans         &to 0       &trans                             &kp TAB    &kp BSPC   &trans
                         >;
             sensor-bindings = <&inc_dec_kp C_PREV C_NEXT>;
         };
