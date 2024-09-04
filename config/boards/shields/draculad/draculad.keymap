@@ -35,8 +35,7 @@
                         bindings = <
    &kp V           &kp F             &kp P               &kp LS(P)        &kp T                                            &kp R            &kpO            &kp L          &kp RC(C)        &kp LS(R)   
    &kp C_AC_COPY   &kp C_AC_CUT      &kp C_AC_PASTE      &kp LS(LG(R))    &kp LS(LG(C))                                    &kp LA(LG(C))    &kp LA(LG(V))   &kp LEFT       &kp UP           &kp RIGHT
-   // &kp LG(RBKT)    &kp LG(LBKT)      &kp RBKT            &kp LBKT         &kp LA(A D)       &kp LA(W S)    &kp LA(H V)     &kp LS(A)        &kp LA(LS(A))   &kp RC(LS(A))  &kp RC(LA(H V))  &kp Z   
-   &kp LG(RBKT)    &kp LG(LBKT)      &kp RBKT            &kp LBKT         &kp A             &kp LA(W S)    &kp LA(H V)     &kp LS(A)        &kp LA(LS(A))   &kp RC(LS(A))  &kp A            &kp Z   
+   &kp LG(RBKT)    &kp LG(LBKT)      &kp RBKT            &kp LBKT         &kp A             &kp A    &kp A                 &kp LS(A)        &kp LA(LS(A))   &kp RC(LS(A))  &kp A            &kp Z
                                      &trans              &to 0            &trans                                           &kp TAB          &kp BSPC        &trans
                         >;
             sensor-bindings = <&inc_dec_kp C_PREV C_NEXT>;
