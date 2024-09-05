@@ -6,49 +6,79 @@
 
 / {
 
-   behaviors {
-        gqt: global-quick-tap {
-            compatible = "zmk,behavior-hold-tap";
-            label = "GLOBAL_QUICK_TAP";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <125>;
-            global-quick-tap;
-            bindings = <&kp>, <&kp>;
-        };
+  behaviors {
+    gqt: global-quick-tap {
+      compatible = "zmk,behavior-hold-tap";
+      label = "GLOBAL_QUICK_TAP";
+      #binding-cells = <2>;
+      flavor = "tap-preferred";
+      tapping-term-ms = <200>;
+      quick-tap-ms = <125>;
+      global-quick-tap;
+      bindings = <&kp>, <&kp>;
+    };
+  };
+
+  macros {
+    la_a_d: la_a_d {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      bindings
+        = <&macro_press &kp LALT>
+        , <&macro_tap &kp A &kp D>
+        , <&macro_release &kp LALT>
+        ;
+    };
+    la_w_s: la_w_s {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      bindings
+        = <&macro_press &kp LALT>
+        , <&macro_tap &kp W &kp S>
+        , <&macro_release &kp LALT>
+        ;
+    };
+    la_h_v: la_h_v {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      bindings
+        = <&macro_press &kp LALT>
+        , <&macro_tap &kp H &kp V>
+        , <&macro_release &kp LALT>
+        ;
+    };
+  };
+
+  keymap {
+    compatible = "zmk,keymap";
+    default_layer {
+      bindings = <
+        &kp Q                &kp W       &kp E       &kp R       &kp T                                 &kp Y           &kp U        &kp I      &kp O       &kp P        
+        &gqt LSHIFT A        &kp S       &kp D       &kp F       &kp G                                 &kp H           &kp J        &kp K      &kp L       &gqt RSHIFT S
+        &gqt LGUI LESS_THAN  &kp Z       &kp X       &kp C       &kp V       &kp C_PP       &kp CLCK   &kp B           &kp N        &kp M      &kp COMMA   &gqt RGUI DOT  
+        &kp LCTRL   &to 1   &kp SPACE                                 &gqt RALT RET   &lt 2 BSPC   &kp RALT
+      >;
+      sensor-bindings = <&inc_dec_kp C_AC_ZOOM_IN C_AC_ZOOM_OUT>;
     };
 
-    keymap {
-        compatible = "zmk,keymap";
-        default_layer {
-                        bindings = <
-   &kp Q                &kp W       &kp E       &kp R       &kp T                                 &kp Y           &kp U        &kp I      &kp O       &kp P        
-   &gqt LSHIFT A        &kp S       &kp D       &kp F       &kp G                                 &kp H           &kp J        &kp K      &kp L       &gqt RSHIFT S
-   &gqt LGUI LESS_THAN  &kp Z       &kp X       &kp C       &kp V       &kp C_PP       &kp CLCK   &kp B           &kp N        &kp M      &kp COMMA   &gqt RGUI DOT  
-                                    &kp LCTRL   &to 1   &kp SPACE                                 &gqt RALT RET   &lt 2 BSPC   &kp RALT
-                        >;
-            sensor-bindings = <&inc_dec_kp C_AC_ZOOM_IN C_AC_ZOOM_OUT>;
-        };
-
-        lower_layer {
-                        bindings = <
-   &kp V           &kp F             &kp P               &kp LS(P)        &kp T                                            &kp R            &kp O           &kp L          &kp RC(C)        &kp LS(R)   
-   &kp C_AC_COPY   &kp C_AC_CUT      &kp C_AC_PASTE      &kp LS(LG(R))    &kp LS(LG(C))                                    &kp LA(LG(C))    &kp LA(LG(V))   &kp LEFT       &kp UP           &kp RIGHT
-   &kp LG(RBKT)    &kp LG(LBKT)      &kp RBKT            &kp LBKT         &kp A             &kp A    &kp A                 &kp LS(A)        &kp LA(LS(A))   &kp RC(LS(A))  &kp A            &kp Z
-                                     &trans              &to 0            &trans                                           &kp TAB          &kp BSPC        &trans
-                        >;
-            sensor-bindings = <&inc_dec_kp C_PREV C_NEXT>;
-        };
-
-                raise_layer {
-                        bindings = <
-   &kp F1   &kp F2    &kp F3       &kp F4         &kp F5                               &kp F6      &kp F7      &kp F8      &kp BSLH   &kp GRAVE
-   &trans   &trans    &kp LBKT     &kp RBKT       &trans                               &kp MINUS   &kp EQUAL   &kp SLASH   &trans     &trans   
-   &kp F9   &kp F10   &kp F11      &kp F12        &trans      &trans          &trans   &trans      &trans      &trans      &trans     &trans   
-                      &bt BT_CLR   &bt BT_SEL 1   &bt BT_SEL 0                         &trans      &trans      &trans
-                        >;
-            sensor-bindings = <&inc_dec_kp LC(LS(TAB)) LC(TAB)>;
-                };
+    lower_layer {
+      bindings = <
+        &kp V           &kp F             &kp P               &kp LS(P)        &kp T                                            &kp R            &kp O           &kp L          &kp RC(C)        &kp LS(R)   
+        &kp C_AC_COPY   &kp C_AC_CUT      &kp C_AC_PASTE      &kp LS(LG(R))    &kp LS(LG(C))                                    &kp LA(LG(C))    &kp LA(LG(V))   &kp LEFT       &kp UP           &kp RIGHT
+        &kp LG(RBKT)    &kp LG(LBKT)      &kp RBKT            &kp LBKT         &la_a_d             &la_w_s    &la_h_v                 &kp LS(A)        &kp LA(LS(A))   &kp RC(LS(A))  &kp RC(la_h_v)            &kp Z
+        &trans              &to 0            &trans                                           &kp TAB          &kp BSPC        &trans
+      >;
+      sensor-bindings = <&inc_dec_kp C_PREV C_NEXT>;
     };
+
+    raise_layer {
+      bindings = <
+        &kp F1   &kp F2    &kp F3       &kp F4         &kp F5                               &kp F6      &kp F7      &kp F8      &kp BSLH   &kp GRAVE
+        &trans   &trans    &kp LBKT     &kp RBKT       &trans                               &kp MINUS   &kp EQUAL   &kp SLASH   &trans     &trans   
+        &kp F9   &kp F10   &kp F11      &kp F12        &trans      &trans          &trans   &trans      &trans      &trans      &trans     &trans   
+        &bt BT_CLR   &bt BT_SEL 1   &bt BT_SEL 0                         &trans      &trans      &trans
+      >;
+      sensor-bindings = <&inc_dec_kp LC(LS(TAB)) LC(TAB)>;
+    };
+  };
 };
