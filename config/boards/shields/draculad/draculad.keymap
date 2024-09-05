@@ -47,6 +47,17 @@
         , <&macro_release &kp LALT>
         ;
     };
+    la_h_v: rc_la_h_v {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      bindings
+        = <&macro_press &kp RCTRL>
+        , <&macro_press &kp LALT>
+        , <&macro_tap &kp H &kp V>
+        , <&macro_release &kp LALT>
+        , <&macro_release &kp RCTRL>
+        ;
+    };
   };
 
   keymap {
@@ -65,7 +76,7 @@
       bindings = <
         &kp V           &kp F             &kp P               &kp LS(P)        &kp T                                            &kp R            &kp O           &kp L          &kp RC(C)        &kp LS(R)   
         &kp C_AC_COPY   &kp C_AC_CUT      &kp C_AC_PASTE      &kp LS(LG(R))    &kp LS(LG(C))                                    &kp LA(LG(C))    &kp LA(LG(V))   &kp LEFT       &kp UP           &kp RIGHT
-        &kp LG(RBKT)    &kp LG(LBKT)      &kp RBKT            &kp LBKT         &la_a_d             &la_w_s    &la_h_v                 &kp LS(A)        &kp LA(LS(A))   &kp RC(LS(A))  &kp RC(la_h_v)            &kp Z
+        &kp LG(RBKT)    &kp LG(LBKT)      &kp RBKT            &kp LBKT         &la_a_d             &la_w_s    &la_h_v                 &kp LS(A)        &kp LA(LS(A))   &kp RC(LS(A))  &rc_la_h_v            &kp Z
         &trans              &to 0            &trans                                           &kp TAB          &kp BSPC        &trans
       >;
       sensor-bindings = <&inc_dec_kp C_PREV C_NEXT>;
