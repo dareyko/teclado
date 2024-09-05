@@ -47,7 +47,7 @@
         , <&macro_release &kp LALT>
         ;
     };
-    la_h_v: rc_la_h_v {
+    rc_la_h_v: rc_la_h_v {
       compatible = "zmk,behavior-macro";
       #binding-cells = <0>;
       bindings
